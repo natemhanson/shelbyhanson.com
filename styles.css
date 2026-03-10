@@ -145,28 +145,12 @@ textarea:focus-visible {
 
 /* ===== HERO ===== */
 .hero {
-  background: var(--dark);
+  background: var(--cream);
   min-height: 100svh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-}
-
-/* Subtle warm gradient atmosphere */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: -20%;
-  right: -10%;
-  width: 60%;
-  height: 80%;
-  background: radial-gradient(
-    ellipse,
-    rgba(212, 148, 58, 0.06),
-    transparent 70%
-  );
-  pointer-events: none;
 }
 
 .hero-inner {
@@ -195,7 +179,7 @@ textarea:focus-visible {
   letter-spacing: -0.03em;
   line-height: 0.95;
   margin: 20px 0 0;
-  color: #fff;
+  color: var(--ink);
 }
 
 .hero-tagline {
@@ -204,7 +188,7 @@ textarea:focus-visible {
   font-size: clamp(1.15rem, 2vw, 1.4rem);
   font-weight: 300;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--ink-light);
 }
 
 .hero-btns {
@@ -248,14 +232,14 @@ textarea:focus-visible {
 
 .btn-outline {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--line-light);
+  color: var(--ink);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.35);
-  color: #fff;
+  background: rgba(26, 23, 20, 0.04);
+  border-color: rgba(26, 23, 20, 0.25);
+  color: var(--ink);
 }
 
 /* ===== PORTRAIT ===== */
@@ -271,9 +255,9 @@ textarea:focus-visible {
   overflow: hidden;
   border-radius: 280px 280px 24px 24px;
   box-shadow:
-    0 0 0 1px rgba(212, 148, 58, 0.1),
-    0 0 80px rgba(212, 148, 58, 0.08),
-    0 40px 80px rgba(0, 0, 0, 0.5);
+    0 0 0 1px rgba(212, 148, 58, 0.15),
+    0 20px 60px rgba(26, 23, 20, 0.15),
+    0 8px 24px rgba(26, 23, 20, 0.1);
 }
 
 .arch img {
