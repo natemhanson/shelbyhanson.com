@@ -26,13 +26,6 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body id="top">
-    <button class="monogram" id="monogram" aria-label="Shelby Hanson" type="button">
-      <span class="monogram-inner">
-        <span class="monogram-short">SH</span>
-        <span class="monogram-full">Shelby Hanson</span>
-      </span>
-    </button>
-
     <header class="hero">
       <div class="hero-inner container">
         <div class="hero-content reveal">
@@ -73,14 +66,20 @@
                 rel="noreferrer"
                 >Faith Lab</a
               >
-              podcast. She brings depth and clarity to biblical scholarship
-              &mdash; making it accessible and alive for churches, conferences,
-              and classrooms.
+              podcast with her husband
+              <a
+                href="https://natemhanson.com"
+                target="_blank"
+                rel="noreferrer"
+                >Nate Hanson</a
+              >. She brings depth and clarity to biblical scholarship, making
+              it accessible and alive for churches, conferences, and
+              classrooms.
             </p>
             <blockquote class="pullquote">
               <p>
                 The riches of biblical scholarship belong to every
-                Christ-follower &mdash; not just seminaries and Bible colleges.
+                Christ-follower, not just seminaries and Bible colleges.
               </p>
             </blockquote>
           </div>
@@ -162,8 +161,8 @@
               <p class="label">Get in Touch</p>
               <h2>Let&rsquo;s start a conversation.</h2>
               <p>
-                Whether you have a question, an event, or just want to connect
-                &mdash; we review every request.
+                Whether you have a question, an event, or just want to
+                connect, we review every request.
               </p>
             </div>
             <form
@@ -250,39 +249,6 @@
         { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
       );
       document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-      // Monogram click animation
-      const mono = document.getElementById("monogram");
-      let animating = false;
-      mono.addEventListener("click", () => {
-        if (animating) return;
-        animating = true;
-
-        // Phase 1: Ring pulse burst
-        mono.classList.add("ring-pulse");
-
-        // Phase 2: Expand after brief pause
-        setTimeout(() => {
-          mono.classList.add("expanded");
-        }, 100);
-
-        // Phase 3: Start glow breathing
-        setTimeout(() => {
-          mono.classList.add("glow");
-        }, 700);
-
-        // Phase 4: Collapse
-        setTimeout(() => {
-          mono.classList.remove("expanded", "glow");
-          mono.classList.add("collapsing");
-
-          // Phase 5: Clean up
-          setTimeout(() => {
-            mono.classList.remove("collapsing", "ring-pulse");
-            animating = false;
-          }, 600);
-        }, 2800);
-      });
     </script>
   </body>
 </html>
