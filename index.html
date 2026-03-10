@@ -26,14 +26,12 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body id="top">
-    <nav class="nav">
-      <a class="logo" href="#top" aria-label="Shelby Hanson — home">SH</a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#topics">Topics</a>
-        <a class="nav-cta" href="#contact">Get in Touch</a>
-      </div>
-    </nav>
+    <button class="monogram" id="monogram" aria-label="Shelby Hanson" type="button">
+      <span class="monogram-inner">
+        <span class="monogram-short">SH</span>
+        <span class="monogram-full">Shelby Hanson</span>
+      </span>
+    </button>
 
     <header class="hero">
       <div class="hero-inner container">
@@ -252,6 +250,39 @@
         { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
       );
       document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // Monogram click animation
+      const mono = document.getElementById("monogram");
+      let animating = false;
+      mono.addEventListener("click", () => {
+        if (animating) return;
+        animating = true;
+
+        // Phase 1: Ring pulse burst
+        mono.classList.add("ring-pulse");
+
+        // Phase 2: Expand after brief pause
+        setTimeout(() => {
+          mono.classList.add("expanded");
+        }, 100);
+
+        // Phase 3: Start glow breathing
+        setTimeout(() => {
+          mono.classList.add("glow");
+        }, 700);
+
+        // Phase 4: Collapse
+        setTimeout(() => {
+          mono.classList.remove("expanded", "glow");
+          mono.classList.add("collapsing");
+
+          // Phase 5: Clean up
+          setTimeout(() => {
+            mono.classList.remove("collapsing", "ring-pulse");
+            animating = false;
+          }, 600);
+        }, 2800);
+      });
     </script>
   </body>
 </html>
