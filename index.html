@@ -316,18 +316,24 @@
 
             <form
               class="contact-form"
-              action="https://formspree.io/f/moqodwrw"
+              action="https://api.web3forms.com/submit"
               method="POST"
             >
               <input
+                type="hidden"
+                name="access_key"
+                value="d1f629a2-6ce1-4a07-9834-16d1748b42c0"
+              />
+              <input type="hidden" name="subject" value="Shelby Hanson website inquiry" />
+              <input type="hidden" name="from_name" value="Shelby Hanson Website" />
+              <input
                 class="bot-field"
                 type="text"
-                name="_gotcha"
+                name="botcheck"
                 tabindex="-1"
                 autocomplete="off"
                 aria-hidden="true"
               />
-              <input type="hidden" name="_subject" value="Shelby Hanson website inquiry" />
 
               <div class="form-row">
                 <label>
