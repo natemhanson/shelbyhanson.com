@@ -76,7 +76,6 @@ textarea {
 button,
 .button,
 .nav-links a,
-.media-links a,
 .social-links a,
 .site-footer a {
   transition:
@@ -218,9 +217,7 @@ textarea:focus-visible {
 .hero-title,
 .section-title,
 .course-card h3,
-.series-card h3,
-.featured-talk h3,
-.podcast-card h3 {
+.topic-card h3 {
   font-family: var(--font-display);
   letter-spacing: -0.05em;
   line-height: 0.94;
@@ -254,9 +251,7 @@ textarea:focus-visible {
 .section-intro,
 .story-columns p,
 .course-card p,
-.series-card p,
-.featured-talk p,
-.podcast-card a,
+.topic-card p,
 .contact-lede,
 .contact-support,
 .mission-text,
@@ -370,9 +365,7 @@ textarea:focus-visible {
 .landscape-card,
 .note-card,
 .course-card,
-.series-card,
-.featured-talk,
-.podcast-card,
+.topic-card,
 .contact-shell,
 .mission-card {
   border: 1px solid var(--line);
@@ -504,7 +497,7 @@ textarea:focus-visible {
 }
 
 .courses-section .section-title,
-.media-section .section-title {
+.topics-section .section-title {
   max-width: 720px;
 }
 
@@ -539,8 +532,7 @@ textarea:focus-visible {
 }
 
 .course-card:hover,
-.series-card:hover,
-.podcast-card:hover {
+.topic-card:hover {
   transform: translateY(-4px);
   border-color: var(--line-strong);
 }
@@ -595,13 +587,13 @@ textarea:focus-visible {
   color: rgba(255, 249, 242, 0.84);
 }
 
-.series-grid {
+.topic-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
 
-.series-card {
+.topic-card {
   display: grid;
   gap: 16px;
   padding: 30px;
@@ -610,18 +602,21 @@ textarea:focus-visible {
     linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(245, 235, 223, 0.9));
 }
 
-.series-card:nth-child(2) {
+.topic-card:nth-child(2) {
   background:
     linear-gradient(180deg, rgba(249, 248, 244, 0.84), rgba(233, 239, 231, 0.92));
 }
 
-.series-card h3,
-.featured-talk h3,
-.podcast-card h3 {
+.topic-card:nth-child(3) {
+  background:
+    linear-gradient(180deg, rgba(255, 249, 242, 0.84), rgba(244, 228, 219, 0.9));
+}
+
+.topic-card h3 {
   font-size: 2rem;
 }
 
-.media-links {
+.topic-points {
   list-style: none;
   display: grid;
   gap: 10px;
@@ -629,69 +624,45 @@ textarea:focus-visible {
   margin: 6px 0 0;
 }
 
-.media-links a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 15px 16px;
-  border: 1px solid rgba(72, 52, 41, 0.12);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.58);
+.topic-points li {
+  position: relative;
+  padding: 14px 0 0 18px;
+  border-top: 1px solid rgba(72, 52, 41, 0.1);
   color: var(--ink);
   font-weight: 500;
+  line-height: 1.45;
 }
 
-.media-links a span:last-child,
-.podcast-card a {
-  color: var(--accent);
-  white-space: nowrap;
+.topic-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--sage));
 }
 
-.media-links a:hover {
-  transform: translateX(4px);
-  border-color: var(--line-strong);
-  background: rgba(255, 255, 255, 0.82);
-}
-
-.media-feature-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
-  gap: 22px;
+.topic-note {
   margin-top: 22px;
-}
-
-.featured-talk {
   display: grid;
-  align-content: start;
-  gap: 18px;
-  padding: 34px;
-  border-radius: 32px;
+  gap: 12px;
+  padding: 30px 32px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
   background:
     linear-gradient(135deg, rgba(31, 26, 22, 0.96), rgba(79, 55, 43, 0.94));
   color: #fff9f2;
+  box-shadow: var(--shadow-deep);
 }
 
-.featured-talk p,
-.featured-talk .card-label {
+.topic-note p:last-child {
   color: rgba(255, 249, 242, 0.8);
 }
 
-.podcast-stack {
-  display: grid;
-  gap: 16px;
-}
-
-.podcast-card {
-  display: grid;
-  gap: 12px;
-  padding: 24px;
-  border-radius: 28px;
-  background: rgba(255, 251, 245, 0.72);
-}
-
-.podcast-card a:hover {
-  opacity: 0.8;
+.topic-note .card-label {
+  color: rgba(255, 249, 242, 0.72);
 }
 
 .contact-shell {
@@ -834,8 +805,7 @@ textarea:focus-visible {
   .hero-grid,
   .story-section,
   .section-heading-row,
-  .series-grid,
-  .media-feature-layout,
+  .topic-grid,
   .contact-shell {
     grid-template-columns: 1fr;
   }
@@ -936,9 +906,8 @@ textarea:focus-visible {
   }
 
   .course-card,
-  .series-card,
-  .featured-talk,
-  .podcast-card,
+  .topic-card,
+  .topic-note,
   .contact-shell,
   .mission-card {
     border-radius: 26px;
@@ -946,11 +915,6 @@ textarea:focus-visible {
 
   .portrait-card {
     border-radius: 220px 220px 24px 24px;
-  }
-
-  .media-links a {
-    align-items: flex-start;
-    flex-direction: column;
   }
 
   .site-footer {
