@@ -76,7 +76,6 @@ textarea {
 button,
 .button,
 .nav-links a,
-.social-links a,
 .site-footer a {
   transition:
     transform 180ms ease,
@@ -247,6 +246,24 @@ textarea:focus-visible {
   color: rgba(31, 26, 22, 0.94);
 }
 
+.hero-role {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.hero-role a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(157, 76, 56, 0.28);
+  text-underline-offset: 0.22em;
+}
+
+.hero-role a:hover {
+  text-decoration-color: rgba(157, 76, 56, 0.72);
+}
+
 .hero-support,
 .section-intro,
 .story-columns p,
@@ -308,7 +325,6 @@ textarea:focus-visible {
 
 .button-secondary:hover,
 .button-light:hover,
-.social-links a:hover,
 .site-footer a:hover {
   border-color: var(--line-strong);
   background: rgba(255, 255, 255, 0.84);
@@ -362,7 +378,6 @@ textarea:focus-visible {
   object-position: center 18%;
 }
 
-.landscape-card,
 .note-card,
 .course-card,
 .topic-card,
@@ -372,24 +387,10 @@ textarea:focus-visible {
   box-shadow: var(--shadow-soft);
 }
 
-.landscape-card {
-  position: absolute;
-  left: 0;
-  bottom: 46px;
-  width: min(310px, 58%);
-  overflow: hidden;
-  border-radius: 28px;
-}
-
-.landscape-card img {
-  aspect-ratio: 1.15;
-  object-fit: cover;
-}
-
 .note-card {
   position: absolute;
   right: 22px;
-  bottom: -4px;
+  bottom: 18px;
   width: min(250px, 54%);
   padding: 24px;
   border-radius: 26px;
@@ -681,22 +682,6 @@ textarea:focus-visible {
   gap: 18px;
 }
 
-.social-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.social-links a {
-  padding: 10px 14px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.56);
-  color: var(--muted);
-  font-weight: 500;
-}
-
 .contact-form {
   display: grid;
   gap: 16px;
@@ -824,7 +809,6 @@ textarea:focus-visible {
   }
 
   .portrait-card,
-  .landscape-card,
   .note-card {
     position: relative;
     width: 100%;
@@ -837,10 +821,6 @@ textarea:focus-visible {
 
   .portrait-card {
     margin-left: 0;
-  }
-
-  .landscape-card img {
-    aspect-ratio: 1.7;
   }
 
   .note-card {
