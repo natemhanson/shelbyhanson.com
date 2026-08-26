@@ -8,7 +8,7 @@
       name="description"
       content="Shelby Hanson is a Bible scholar, speaker, and homeschool mom helping families go deeper in Scripture — and teach at home with Arbor."
     />
-    <meta name="theme-color" content="#1a1714" />
+    <meta name="theme-color" content="#f7f3ed" />
     <meta property="og:title" content="Shelby Hanson" />
     <meta
       property="og:description"
@@ -24,8 +24,56 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("shelby-theme");
+          var theme = stored === "dark" || stored === "light" ? stored : "light";
+          document.documentElement.setAttribute("data-theme", theme);
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", theme === "dark" ? "#141210" : "#f7f3ed");
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
   </head>
   <body id="top">
+    <button
+      class="theme-toggle"
+      type="button"
+      aria-label="Switch to dark mode"
+      title="Toggle dark mode"
+    >
+      <svg
+        class="icon-moon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z" />
+      </svg>
+      <svg
+        class="icon-sun"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+        />
+      </svg>
+    </button>
+
     <header class="hero">
       <div class="hero-inner container">
         <div class="hero-content reveal">
@@ -254,6 +302,37 @@
         { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
       );
       document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      const root = document.documentElement;
+      const themeToggle = document.querySelector(".theme-toggle");
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+      function applyTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        try {
+          localStorage.setItem("shelby-theme", theme);
+        } catch (e) {}
+        if (themeMeta) {
+          themeMeta.setAttribute(
+            "content",
+            theme === "dark" ? "#141210" : "#f7f3ed"
+          );
+        }
+        if (themeToggle) {
+          themeToggle.setAttribute(
+            "aria-label",
+            theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+          );
+        }
+      }
+
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          const next =
+            root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          applyTheme(next);
+        });
+      }
     </script>
   </body>
 </html>
