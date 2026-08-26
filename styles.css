@@ -347,7 +347,7 @@ html[data-theme="dark"] .btn-amber {
   color: var(--ink);
 }
 
-/* ===== PORTRAIT (rounded arch top — keep) ===== */
+/* ===== PORTRAIT (rounded arch top) ===== */
 .hero-portrait {
   display: flex;
   justify-content: center;
@@ -596,7 +596,7 @@ html[data-theme="dark"] .arbor-aside-label {
   font-size: 0.88rem;
 }
 
-/* ===== CTA SECTION — soft rounded top ===== */
+/* ===== CTA SECTION (soft rounded top) ===== */
 .cta-section {
   position: relative;
   min-height: 460px;
@@ -836,7 +836,7 @@ html[data-theme="dark"] .arbor-aside-label {
   }
 }
 
-/* ===== RESPONSIVE — TABLET ===== */
+/* ===== RESPONSIVE: TABLET ===== */
 @media (max-width: 1080px) {
   .hero-inner {
     grid-template-columns: 1fr;
@@ -893,7 +893,7 @@ html[data-theme="dark"] .arbor-aside-label {
   }
 }
 
-/* ===== RESPONSIVE — MOBILE ===== */
+/* ===== RESPONSIVE: MOBILE ===== */
 @media (max-width: 760px) {
   .container {
     padding: 0 20px;
