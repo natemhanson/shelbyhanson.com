@@ -598,13 +598,49 @@ html[data-theme="dark"] .arbor-aside-label {
 
 /* ===== CONTACT (hills background + form) ===== */
 .contact-section {
+  --crest-h: clamp(96px, 10vw, 148px);
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
-  border-radius: 48% 48% 0 0 / 9% 9% 0 0;
   margin-top: -1px;
   background: #151c18;
+}
+
+/* The section above flows over the crest, so no page background is ever
+   exposed between the two colour fields. */
+.contact-crest {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: var(--crest-h);
+  pointer-events: none;
+}
+
+.crest-fill {
+  fill: var(--bg-alt);
+  transition: fill 0.3s ease;
+}
+
+.crest-line {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 1.25;
+  stroke-opacity: 0.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.crest-bloom-in {
+  stop-color: var(--brass);
+  stop-opacity: 0.2;
+}
+
+.crest-bloom-out {
+  stop-color: var(--brass);
+  stop-opacity: 0;
 }
 
 .contact-section > img {
@@ -636,9 +672,9 @@ html[data-theme="dark"] .arbor-aside-label {
 
 .contact-overlay {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
-  padding: 100px 0 88px;
+  padding: calc(var(--crest-h) + 60px) 0 88px;
 }
 
 .contact-grid {
@@ -790,6 +826,12 @@ html[data-theme="dark"] .contact-section .label {
 }
 
 /* ===== SCROLL REVEAL ===== */
+.contact-section.reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -884,9 +926,6 @@ html[data-theme="dark"] .contact-section .label {
     gap: 40px;
   }
 
-  .contact-section {
-    border-radius: 40% 40% 0 0 / 7% 7% 0 0;
-  }
 }
 
 /* ===== RESPONSIVE: MOBILE ===== */
@@ -947,11 +986,11 @@ html[data-theme="dark"] .contact-section .label {
   }
 
   .contact-section {
-    border-radius: 36% 36% 0 0 / 6% 6% 0 0;
+    --crest-h: clamp(64px, 14vw, 96px);
   }
 
   .contact-overlay {
-    padding: 72px 0 64px;
+    padding: calc(var(--crest-h) + 44px) 0 64px;
   }
 
   .contact-form {
