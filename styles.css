@@ -323,9 +323,81 @@ h2 {
   color: var(--ink);
 }
 
+/* ===== HOMESCHOOL / ARBOR ===== */
+.arbor-section {
+  background: var(--cream);
+  padding: 100px 0;
+}
+
+.arbor-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 32px;
+}
+
+.arbor-body {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.78;
+  color: var(--ink-light);
+}
+
+.arbor-body a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+
+.arbor-body a:hover {
+  text-decoration-color: var(--ink);
+}
+
+.arbor-aside {
+  padding-left: 24px;
+  border-left: 3px solid var(--amber);
+}
+
+.arbor-aside-label {
+  margin: 0;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.arbor-aside-text {
+  margin: 12px 0 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.arbor-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.arbor-links .btn {
+  height: 46px;
+  padding: 0 22px;
+  font-size: 0.9rem;
+}
+
 /* ===== TOPICS ===== */
 .topics-section {
-  background: var(--cream);
+  background: var(--white);
   padding: 100px 0;
 }
 
@@ -593,6 +665,13 @@ h2 {
   color: var(--amber-hover);
 }
 
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+}
+
 /* ===== SCROLL REVEAL ===== */
 .reveal {
   opacity: 0;
@@ -663,6 +742,18 @@ h2 {
     gap: 32px;
   }
 
+  .arbor-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .arbor-aside {
+    padding-left: 0;
+    padding-top: 4px;
+    border-left: none;
+    border-top: 3px solid var(--amber);
+  }
+
   .topic-row {
     grid-template-columns: 48px 1fr;
     gap: 12px 20px;
@@ -723,6 +814,7 @@ h2 {
   }
 
   .about-section,
+  .arbor-section,
   .topics-section,
   .courses-section,
   .contact-section {
