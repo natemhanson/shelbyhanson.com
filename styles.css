@@ -521,22 +521,6 @@ h2 {
   overflow: hidden;
 }
 
-.arbor-section::before {
-  content: "";
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  left: -120px;
-  bottom: -140px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(111, 143, 117, 0.12),
-    transparent 68%
-  );
-  pointer-events: none;
-}
-
 .arbor-grid {
   position: relative;
   z-index: 1;
