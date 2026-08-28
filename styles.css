@@ -49,6 +49,7 @@
   );
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Sora", "Helvetica Neue", Arial, sans-serif;
+  --font-hebrew: "Frank Ruhl Libre", "Times New Roman", serif;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light;
 }
@@ -413,6 +414,62 @@ html[data-theme="dark"] .btn-amber {
   }
 }
 
+/* ===== HEBREW ACCENTS ===== */
+.hero-aleph {
+  position: absolute;
+  top: -4%;
+  left: -2%;
+  z-index: 0;
+  font-family: var(--font-hebrew);
+  font-weight: 700;
+  font-size: clamp(280px, 34vw, 520px);
+  line-height: 1;
+  color: var(--brass);
+  opacity: 0.08;
+  pointer-events: none;
+  user-select: none;
+}
+
+html[data-theme="dark"] .hero-aleph {
+  opacity: 0.06;
+}
+
+.hero-frieze {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  pointer-events: none;
+}
+
+.frieze-line {
+  display: block;
+  width: 68px;
+  height: 1px;
+  background: var(--line-strong);
+  opacity: 0.55;
+}
+
+.frieze-letters {
+  margin: 0;
+  font-family: var(--font-hebrew);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  white-space: nowrap;
+  color: var(--amber-dark);
+  opacity: 0.8;
+  user-select: none;
+}
+
+html[data-theme="dark"] .frieze-letters {
+  color: var(--amber);
+}
+
 /* ===== SECTIONS ===== */
 .section {
   scroll-margin-top: 20px;
@@ -655,19 +712,23 @@ html[data-theme="dark"] .arbor-aside-label {
   stop-opacity: 0;
 }
 
-.contact-section > img {
+.contact-mosaic {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.04);
-  transition: transform 1.2s var(--ease-out);
-}
-
-.contact-section.in-view > img,
-.contact-section:hover > img {
-  transform: scale(1.08);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: baseline;
+  justify-content: center;
+  column-gap: 28px;
+  row-gap: 4px;
+  padding: 36px 24px;
+  overflow: hidden;
+  font-family: var(--font-hebrew);
+  font-weight: 500;
+  line-height: 1.1;
+  pointer-events: none;
+  user-select: none;
 }
 
 .contact-section::after {
@@ -676,9 +737,9 @@ html[data-theme="dark"] .arbor-aside-label {
   inset: 0;
   background: linear-gradient(
     105deg,
-    rgba(21, 28, 24, 0.86) 0%,
-    rgba(21, 28, 24, 0.48) 55%,
-    rgba(21, 28, 24, 0.58) 100%
+    rgba(21, 28, 24, 0.55) 0%,
+    rgba(21, 28, 24, 0.12) 55%,
+    rgba(21, 28, 24, 0.4) 100%
   );
 }
 
@@ -949,6 +1010,16 @@ html[data-theme="dark"] .contact-section .label {
   .hero {
     min-height: auto;
     align-items: flex-start;
+  }
+
+  .hero-frieze {
+    display: none;
+  }
+
+  .hero-aleph {
+    top: -20px;
+    left: -34px;
+    font-size: 230px;
   }
 
   .hero-inner {
