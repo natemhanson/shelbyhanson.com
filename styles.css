@@ -436,14 +436,21 @@ html[data-theme="dark"] .hero-aleph {
 
 .hero-frieze {
   position: absolute;
-  bottom: 30px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  pointer-events: none;
+}
+
+.frieze-row {
+  display: flex;
   align-items: center;
   gap: 22px;
-  pointer-events: none;
 }
 
 .frieze-line {
@@ -457,13 +464,24 @@ html[data-theme="dark"] .hero-aleph {
 .frieze-letters {
   margin: 0;
   font-family: var(--font-hebrew);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.04em;
+  word-spacing: 0.32em;
   white-space: nowrap;
   color: var(--amber-dark);
-  opacity: 0.8;
+  opacity: 0.85;
   user-select: none;
+}
+
+.frieze-ref {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  opacity: 0.7;
 }
 
 html[data-theme="dark"] .frieze-letters {

@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Sora:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Sora:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700&family=Noto+Sans+Phoenician&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -77,9 +77,12 @@
     <header class="hero">
       <span class="hero-aleph" aria-hidden="true">א</span>
       <div class="hero-frieze" aria-hidden="true">
-        <span class="frieze-line"></span>
-        <p class="frieze-letters" dir="rtl">א ב ג ד ה ו ז ח ט י כ ל מ נ ס ע פ צ ק ר ש ת</p>
-        <span class="frieze-line"></span>
+        <div class="frieze-row">
+          <span class="frieze-line"></span>
+          <p class="frieze-letters" dir="rtl">בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ</p>
+          <span class="frieze-line"></span>
+        </div>
+        <span class="frieze-ref">Genesis 1:1</span>
       </div>
       <div class="hero-inner container">
         <div class="hero-content reveal">
@@ -325,7 +328,10 @@
       // Seeded so the mosaic composes the same way on every visit.
       const mosaic = document.querySelector(".contact-mosaic");
       if (mosaic) {
-        const letters = "אבגדהוזחטיכלמנסעפצקרשת";
+        // Square (biblical book-hand) letters plus their paleo-Hebrew
+        // ancestors, the script of the earliest inscriptions.
+        const square = Array.from("אבגדהוזחטיכלמנסעפצקרשת");
+        const paleo = Array.from("𐤀𐤁𐤂𐤃𐤄𐤅𐤆𐤇𐤈𐤉𐤊𐤋𐤌𐤍𐤎𐤏𐤐𐤑𐤒𐤓𐤔𐤕");
         let seed = 5786;
         const rand = () => {
           seed = (seed + 0x6d2b79f5) | 0;
@@ -337,7 +343,12 @@
         const frag = document.createDocumentFragment();
         for (let i = 0; i < 480; i++) {
           const span = document.createElement("span");
-          span.textContent = letters[Math.floor(rand() * letters.length)];
+          const ancient = rand() < 0.34;
+          const set = ancient ? paleo : square;
+          span.textContent = set[Math.floor(rand() * set.length)];
+          if (ancient) {
+            span.style.fontFamily = "'Noto Sans Phoenician', serif";
+          }
           const size = sizes[Math.floor(rand() * sizes.length)];
           span.style.fontSize = size + "px";
           span.style.color = rand() < 0.3 ? "#6f8f75" : "#b8924a";
